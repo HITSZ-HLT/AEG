@@ -1,0 +1,30 @@
+
+CUDA_VISIBLE_DEVICES=0 python run_aeg.py \
+    --model_name_or_path bart-base \
+    --do_train \
+    --do_eval \
+    --do_predict \
+    --train_file dataset/ef_train_w_kw.csv \
+    --validation_file dataset/ef_dev_w_kw.csv \
+    --test_file dataset/ef_test_w_kw.csv \
+    --output_dir outputs \
+    --per_device_train_batch_size=8 \
+    --per_device_eval_batch_size=8 \
+    --gradient_accumulation_steps=8 \
+    --overwrite_output_dir \
+    --predict_with_generate \
+    --cache_dir cache \
+    --num_train_epochs 60 \
+    --logging_steps 200 \
+    --save_steps 200 \
+    --eval_steps 200 \
+    --learning_rate 3e-5 \
+    --bleu_metric_path bleu.py \
+    --evaluation_strategy "steps" \
+    --generation_max_length 700 \
+    --text_column "prompt" \
+    --summary_column "essay_with_keywords" \
+    --warmup_ratio 0.1 \
+    --remove_unused_columns False \
+    --generation_num_beams 1 \
+    --use_top_k
