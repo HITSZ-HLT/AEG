@@ -25,4 +25,4 @@ bash run.sh
 ```
 
 See the results in `./outputs`.  
-For results with pre-training, please train the model with the [CNN-DailyMail](https://huggingface.co/datasets/ccdv/cnn_dailymail) dataset first with the same procedure.
+For the pre-training results, please first train the model with the [CNN-DailyMail](https://huggingface.co/datasets/ccdv/cnn_dailymail) dataset with the same procedure.
